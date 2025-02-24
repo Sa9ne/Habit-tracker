@@ -72,7 +72,7 @@ func NewWindowAdd(MainWindow fyne.Window, DB *gorm.DB, icons *Icons, NoHabitText
 		difficultiLevel, err := strconv.Atoi(DifficultiLevelEntry.Text)
 		errorLabelDifficult := widget.NewLabel("Степень важности должна быть числом от 1 до 10!")
 		errorLabelDifficult.TextStyle = fyne.TextStyle{Bold: true}
-		if err != nil && difficultiLevel <= 1 || difficultiLevel > 11 {
+		if err != nil && difficultiLevel <= 1 || difficultiLevel > 11 || difficultiLevel < 1 {
 			// Обработка ошибки, если введено не число
 			dialog.NewCustom("Ошибка уровня важности", "Закрыть", errorLabelDifficult, MainWindow).Show()
 			return
